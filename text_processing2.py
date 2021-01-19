@@ -30,10 +30,17 @@ def digits_to_words(input_string):
     """
     digit_string = []
 
-    digit_list = [int(c) for c in input_string if c.isdigit()]
+    # 굳이 list를 생성할 필요가 없겠다. 공간/시간 복잡도 모두 손해
+    # digit_list = [int(c) for c in input_string if c.isdigit()]
+    # word_list = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' ]
+    # for d in digit_list:
+    #     digit_string.append(word_list[d])
+
     word_list = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' ]
-    for d in digit_list:
-        digit_string.append(word_list[d])
+
+    for c in input_string:
+        if c.isdigit():
+            digit_string.append(word_list[int(c)])
     
     return ' '.join(digit_string)
 
